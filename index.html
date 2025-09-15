@@ -21,176 +21,62 @@
       padding-top: 80px;
       scroll-behavior: smooth;
     }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 50px;
-      background: rgba(15, 23, 42, 0.85);
-      flex-wrap: nowrap;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      transition: top 0.3s;
-    }
-    
-    .navbar-hidden {
-        top: -100px;
-    }
-
-    header h1 { 
-      min-height: 48px; 
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .svg-text-container, .text-content-wrapper {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .typing-phase .svg-text-container,
-    .drawing-phase .text-content-wrapper {
-      display: none;
-    }
-
-    .animated-svg-text text {
-      font-family: "Chakra Petch", sans-serif;
-      font-size: 32px;
-      font-weight: bold;
-      fill: transparent;
-      stroke: #38bdf8;
-      stroke-width: 1.5;
-      stroke-dasharray: 1200;
-      stroke-dashoffset: 1200;
-    }
-    .animated-svg-text.animate text {
-      animation: draw-text 4s linear forwards;
-    }
-
-    @keyframes draw-text {
-      to {
-        stroke-dashoffset: 0;
-      }
-    }
-
-    .blinking-cursor {
-      display: inline-block;
-      background-color: #38bdf8;
-      margin-left: 4px;
-      width: 3px;
-      animation: blink 1s step-end infinite;
-      height: 32px;
-      vertical-align: middle;
-    }
-    
-    #hero-h2 .blinking-cursor {
-        height: 3rem;
-    }
-    #hero-h3-animated .blinking-cursor {
-        height: 2rem;
-    }
-
-    @keyframes blink {
-      from, to { background-color: transparent }
-      50% { background-color: #38bdf8; }
-    }
-    
-    .text-content-typing {
-        color: #38bdf8;
-        font-size: 32px;
-        font-weight: bold;
-    }
-
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; background: rgba(15, 23, 42, 0.85); flex-wrap: nowrap; position: fixed; top: 0; width: 100%; z-index: 1000; transition: top 0.3s; }
+    .navbar-hidden { top: -100px; }
+    header h1 { min-height: 48px; display: flex; align-items: center; flex-shrink: 0; }
+    .svg-text-container, .text-content-wrapper { width: 100%; height: 100%; display: flex; align-items: center; justify-content: flex-start; }
+    .typing-phase .svg-text-container, .drawing-phase .text-content-wrapper { display: none; }
+    .animated-svg-text text { font-family: "Chakra Petch", sans-serif; font-size: 32px; font-weight: bold; fill: transparent; stroke: #38bdf8; stroke-width: 1.5; stroke-dasharray: 1200; stroke-dashoffset: 1200; }
+    .animated-svg-text.animate text { animation: draw-text 4s linear forwards; }
+    @keyframes draw-text { to { stroke-dashoffset: 0; } }
+    .blinking-cursor { display: inline-block; background-color: #38bdf8; margin-left: 4px; width: 3px; animation: blink 1s step-end infinite; height: 32px; vertical-align: middle; }
+    #hero-h2 .blinking-cursor { height: 3rem; }
+    #hero-h3-animated .blinking-cursor { height: 2rem; }
+    @keyframes blink { from, to { background-color: transparent } 50% { background-color: #38bdf8; } }
+    .text-content-typing { color: #38bdf8; font-size: 32px; font-weight: bold; }
     nav a { margin: 0 15px; color: #fff; text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: #38bdf8; }
-
     .menu-toggle { display: none; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1002; }
     .menu-toggle .bar { width: 100%; height: 3px; background-color: #fff; border-radius: 2px; transition: all 0.3s ease-in-out; }
     .menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-
     .hero { display: flex; justify-content: center; align-items: center; padding: 100px 50px; flex-wrap: wrap; text-align: center; }
     .hero-text h2 { font-size: 3rem; min-height: 4rem; }
     .hero-text h3 { font-size: 2rem; color: #38bdf8; margin: 10px 0; }
     .hero-text p { font-size: 1.2rem; }
     .btn { display: inline-block; margin-top: 20px; padding: 10px 25px; background: #38bdf8; color: #0b1120; border-radius: 5px; text-decoration: none; font-weight: bold; }
     .btn:hover { background: #0ea5e9; }
-
     section { padding: 60px 50px; background: rgba(15, 23, 42, 0.85); margin: 20px auto; border-radius: 15px; max-width: 900px; }
     section h2 { position: relative; margin-bottom: 20px; text-align: center; font-size: 2.2rem; background: linear-gradient(90deg, #38bdf8, #f43f5e, #fff, #34d399, #38bdf8); background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: animateGradient 5s linear infinite; text-shadow: none; }
     @keyframes animateGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     section h2::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 100%; height: 8px; background: linear-gradient(120deg, #38bdf8, #f43f5e, #fff, #34d399, #38bdf8); transform: skewX(-20deg); border-radius: 4px; z-index: -1; background-size: 300% 100%; animation: animateGradient 5s linear infinite; }
     #hero-h3-animated::after { content: none; }
-
     .profile-wrapper { position: relative; display: inline-block; border-radius: 50%; padding: 5px; background: linear-gradient(90deg, #38bdf8, #f43f5e, #34d399, #38bdf8); background-size: 300% 300%; animation: gradientBorder 5s linear infinite; box-shadow: 0 10px 20px rgba(56,189,248,0.4), 0 0 30px rgba(52,211,153,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; margin: 20px 0; }
     .profile-wrapper img { border-radius: 50%; display: block; width: 350px; height: 350px; object-fit: cover; transition: transform 0.3s ease; }
     .profile-wrapper:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(56,189,248,0.6), 0 0 40px rgba(52,211,153,0.5); }
     @keyframes gradientBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-
     .skill { margin: 15px 0; }
     .bar { width: 100%; background: #1e293b; border-radius: 5px; overflow: hidden; }
-    .bar-fill {
-      height: 14px;
-      background: #38bdf8;
-      width: 0;
-      transition: width 1.5s ease-in-out;
-    }
-
+    .bar-fill { height: 14px; background: #38bdf8; width: 0; transition: width 1.5s ease-in-out; }
     form input, form textarea { width: 100%; margin: 10px 0; padding: 12px; border: none; border-radius: 5px; }
     form button { padding: 12px 25px; background: #38bdf8; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
     form button:hover { background: #0ea5e9; }
-
-    .form-submit-area {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-    }
-    .social-links {
-      margin-left: 20px;
-      display: flex;
-      gap: 15px;
-    }
-    .social-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      background-color: #1e293b;
-      color: #fff;
-      border-radius: 50%;
-      text-decoration: none;
-      font-size: 20px;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-    .social-btn:hover {
-      background-color: #38bdf8;
-      transform: scale(1.1);
-    }
-
+    .form-submit-area { display: flex; align-items: center; margin-top: 10px; }
+    .social-links { margin-left: 20px; display: flex; gap: 15px; }
+    .social-btn { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; background-color: #1e293b; color: #fff; border-radius: 50%; text-decoration: none; font-size: 20px; transition: background-color 0.3s, transform 0.3s; }
+    .social-btn:hover { background-color: #38bdf8; transform: scale(1.1); }
     footer { text-align: center; padding: 20px; background: rgba(15, 23, 42, 0.85); }
-
     @media (max-width: 768px) {
       body { padding-top: 70px; }
       header { padding: 15px 20px; }
       header h1 { min-height: 40px; width: 100%; justify-content: center; }
       .svg-text-container, .text-content-wrapper { justify-content: center; }
-      
       .menu-toggle { display: flex; position: fixed; top: 23px; right: 20px; }
-      
       nav#main-nav { position: fixed; top: 0; right: -100%; width: 60%; max-width: 250px; height: 100vh; background: rgba(15, 23, 42, 0.98); flex-direction: column; justify-content: flex-start; align-items: flex-start; padding: 100px 30px 30px 30px; transition: right 0.4s ease-in-out; z-index: 1001; }
       nav#main-nav.active { right: 0; }
       nav a { display: block; margin: 0; padding: 15px 0; font-size: 1.2rem; width: 100%; border-bottom: 1px solid rgba(255, 255, 255, 0.1); transition: background-color 0.3s; }
       nav a:hover { background-color: rgba(255, 255, 255, 0.05); color: #38bdf8; }
-
       .hero-text h2 { font-size: 2rem; min-height: 2.5rem; }
       #hero-h2 .blinking-cursor { height: 2rem; }
       .hero-text h3 { font-size: 1.4rem; }
@@ -198,7 +84,6 @@
       section { padding: 30px 20px; }
       .profile-wrapper img { width: 200px; height: 200px; }
     }
-
     .big-form { font-size: 18px; padding: 20px; }
   </style>
 </head>
@@ -206,107 +91,51 @@
   <!-- HTML ทั้งหมดเหมือนเดิม -->
   <header>
     <h1 id="typing-text" class="typing-phase">
-      <div class="text-content-wrapper">
-        <span class="text-content-typing"></span>
-        <span class="blinking-cursor"></span>
-      </div>
-      <div class="svg-text-container">
-        <svg id="animated-svg" class="animated-svg-text" width="250" height="40">
-          <text x="0" y="32">MyPortfolio.</text>
-        </svg>
-      </div>
+      <div class="text-content-wrapper"><span class="text-content-typing"></span><span class="blinking-cursor"></span></div>
+      <div class="svg-text-container"><svg id="animated-svg" class="animated-svg-text" width="250" height="40"><text x="0" y="32">MyPortfolio.</text></svg></div>
     </h1>
     <nav id="main-nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#journey">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+      <a href="#home">Home</a><a href="#about">About</a><a href="#journey">Education</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
     </nav>
-    <button id="menu-toggle" class="menu-toggle">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
+    <button id="menu-toggle" class="menu-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
   </header>
 
   <section class="hero" id="home">
     <div class="hero-text">
-   <img src="https://i.postimg.cc/FFZ6vdjz/matikanetannhauser-mambo.gif" style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%;">
-      <h2 id="hero-h2">
-        <span class="hero-h2-text"></span><span class="blinking-cursor"></span>
-      </h2>
-      <h2 id="hero-h3-animated" style="font-size:2rem; color:#38bdf8; margin:10px 0;">
-        <span class="hero-h3-text"></span><span class="blinking-cursor"></span>
-      </h2>
+      <img src="https://i.postimg.cc/FFZ6vdjz/matikanetannhauser-mambo.gif" style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%;">
+      <h2 id="hero-h2"><span class="hero-h2-text"></span><span class="blinking-cursor"></span></h2>
+      <h2 id="hero-h3-animated" style="font-size:2rem; color:#38bdf8; margin:10px 0;"><span class="hero-h3-text"></span><span class="blinking-cursor"></span></h2>
       <p>มีความสามารถในการออกแบบกราฟิก การปั้นโมเดล 3D และเขียนโค้ดเบื้องต้น</p>
       <a href="#contact" class="btn">Contact Me</a>
     </div>
   </section>
+
   <section id="about">
     <h2>About Me</h2>
     <div style="text-align:center;">
-      <div class="profile-wrapper">
-        <img src="https://i.postimg.cc/Y07ygPPf/718d758b-899a-41fa-8530-af157cf5a3e9.jpg" alt="Profile">
-      </div>
+      <div class="profile-wrapper"><img src="https://i.postimg.cc/Y07ygPPf/718d758b-899a-41fa-8530-af157cf5a3e9.jpg" alt="Profile"></div>
     </div>
-    <p style="text-align:center; max-width:700px; margin:auto;"> นายสหรัฐ ตระกูลสุนทรชัย ชื่อเล่น ริว อายุ 18 ปี 
-เกิดวัน 11 มกราคม พ.ศ. 2550 </P>
-  <p style="text-align:center; max-width:700px; margin:auto;">ที่อยู่ 48/2 หมู่ 4 ต.ถนนใหญ่ อ.เมืองลพบุรี จังหวัด ลพบุรี 15000</P>
- <p style="text-align:center; max-width:700px; margin:auto;">ชื่นชอบในการออกแบบสร้างสิ่งต่างๆที่ชอบและชอบในการสร้างเว็บไซต์ต่างๆ อย่างเช่นเว็บไซต์ ให้ข้อมูลเกม แหล่งรวมรูปภาพ ชอบในการเรียนรู้สิ่งไหม่ๆฝึกในสิ่งที่อยากทำเพราะอยากมีความรู้ความสามารถในหลายๆทางเพราะความเชื่อที่ว่ามนุษย์เรียนรู้ได้ไม่มีที่สิ้นสุด</p>
-
+    <p style="text-align:center; max-width:700px; margin:auto;"> นายสหรัฐ ตระกูลสุนทรชัย ชื่อเล่น ริว อายุ 18 ปี เกิดวัน 11 มกราคม พ.ศ. 2550 </p>
+    <p style="text-align:center; max-width:700px; margin:auto;">ที่อยู่ 48/2 หมู่ 4 ต.ถนนใหญ่ อ.เมืองลพบุรี จังหวัด ลพบุรี 15000</p>
+    <p style="text-align:center; max-width:700px; margin:auto;">ชื่นชอบในการออกแบบสร้างสิ่งต่างๆที่ชอบและชอบในการสร้างเว็บไซต์ต่างๆ อย่างเช่นเว็บไซต์ ให้ข้อมูลเกม แหล่งรวมรูปภาพ ชอบในการเรียนรู้สิ่งไหม่ๆฝึกในสิ่งที่อยากทำเพราะอยากมีความรู้ความสามารถในหลายๆทางเพราะความเชื่อที่ว่ามนุษย์เรียนรู้ได้ไม่มีที่สิ้นสุด</p>
   </section>
+
   <section id="journey">
     <h2>My Journey</h2>
     <h3>Education</h3>
     <p>2018 - 2021: secondary education - Muangmai School.</p>
     <p>2021 - 2024: Vocational Certificate -  Lopburi Technical College </p>
     <h3>Experience</h3>
-    <img src="https://i.postimg.cc/wM57G8CY/34-1.png"
-     alt="Example"
-     style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto; margin-bottom:20px;" >
-       
-    <img id="myImage"
-         src="https://i.postimg.cc/7PFPB5mQ/image.jpg"
-         style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto;">
-
-    <script>
-      const images = [
-        "https://i.postimg.cc/Bncz5YnN/final.jpg",
-        "https://i.postimg.cc/ydrXX9RL/image.jpg",
-        "https://i.postimg.cc/MTstPNCb/300-150-Rotary.jpg",
-        "https://i.postimg.cc/c4T1DmC1/150-100-CP-ALL.png",
-           "https://i.postimg.cc/pdc5y2Rb/1170-570.jpg",
-      ];
-
-      let index = 0;
-      const imgElement = document.getElementById("myImage"  );
-
-      setInterval(() => {
-        index = (index + 1) % images.length;
-        imgElement.src = images[index];
-      }, 3000);
-    </script>
+    <img src="https://i.postimg.cc/wM57G8CY/34-1.png" alt="Example" style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto; margin-bottom:20px;">
+    <img id="myImage" src="https://i.postimg.cc/7PFPB5mQ/image.jpg" style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto;">
   </section>
   
   <section id="skills">
     <h2>My Skills</h2>
-    <div class="skill">
-      <p>HTML</p>
-      <div class="bar"><div class="bar-fill" data-width="90%"></div></div>
-    </div>
-    <div class="skill">
-      <p>CSS</p>
-      <div class="bar"><div class="bar-fill" data-width="80%"></div></div>
-    </div>
-    <div class="skill">
-      <p>JavaScript</p>
-      <div class="bar"><div class="bar-fill" data-width="50%"></div></div>
-    </div>
-    <div class="skill">
-      <p>Graphic</p>
-      <div class="bar"><div class="bar-fill" data-width="80%"></div></div>
-    </div>
+    <div class="skill"><p>HTML</p><div class="bar"><div class="bar-fill" data-width="90%"></div></div></div>
+    <div class="skill"><p>CSS</p><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
+    <div class="skill"><p>JavaScript</p><div class="bar"><div class="bar-fill" data-width="50%"></div></div></div>
+    <div class="skill"><p>Graphic</p><div class="bar"><div class="bar-fill" data-width="80%"></div></div></div>
   </section>
 
   <section id="contact">
@@ -319,215 +148,193 @@
       <div class="form-submit-area">
         <button type="submit">Send Message</button>
         <div class="social-links">
-          <a href="https://www.facebook.com/saharat.thakulsuntronchai" class="social-btn" target="_blank" >
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/absolutelychillbro/" class="social-btn" target="_blank" >
-            <i class="fab fa-instagram"></i>
-          </a>
+          <a href="https://www.facebook.com/saharat.thakulsuntronchai" class="social-btn" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/absolutelychillbro/" class="social-btn" target="_blank"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
     </form>
   </section>
-<img src="https://i.postimg.cc/FFZ6vdjz/matikanetannhauser-mambo.gif" style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%;">
-<img src="https://i.postimg.cc/W47L73tC/oguri-cap.gif"
-     style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%; float: center;">
+
+  <img src="https://i.postimg.cc/FFZ6vdjz/matikanetannhauser-mambo.gif" style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%;">
+  <img src="https://i.postimg.cc/W47L73tC/oguri-cap.gif" style="width: 250px; height: 250px; object-fit: cover; border-radius: 50%; float: center;">
 
   <footer>
     <p>© 2025 MyPortfolio. Reserved By Saharat.</p>
   </footer>
 
-  <!-- เอา autoplay ออกจาก HTML -->
-  <audio id="background-music" loop>
-    <source src="เพลง.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <audio id="background-music" loop><source src="เพลง.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
 
-  <!-- START: JavaScript (แก้ไขส่วนเพลง ) -->
+  <!-- START: JavaScript -->
   <script>
-    // --- โค้ดส่วนอื่นๆ เหมือนเดิม ---
-    let lastScrollTop = 0;
-    const header = document.querySelector('header' );
-    window.addEventListener('scroll', function() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
-        header.classList.add('navbar-hidden');
-      } else {
-        header.classList.remove('navbar-hidden');
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
-
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainNav = document.getElementById('main-nav');
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      mainNav.classList.toggle('active');
-    });
-    document.addEventListener('click', function(event) {
-      const isClickInsideNav = mainNav.contains(event.target);
-      const isClickOnToggle = menuToggle.contains(event.target);
-      if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
-        mainNav.classList.remove('active');
-        menuToggle.classList.remove('active');
-      }
-    });
-
-    const h1 = document.getElementById('typing-text');
-    const textSpan = h1.querySelector('.text-content-typing');
-    const svg = document.getElementById('animated-svg');
-    const textToType = "MyPortfolio.";
-    const typingSpeed = 150;
-    const deletingSpeed = 100;
-    const drawAnimationDuration = 4000;
-    const delayAfterDraw = 1000;
-
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeWriter() {
-      h1.className = 'typing-phase';
-      
-      if (isDeleting) {
-        textSpan.textContent = textToType.substring(0, charIndex);
-        charIndex--;
-        if (charIndex < 0) {
-          isDeleting = false;
-          setTimeout(typeWriter, 500);
-        } else {
-          setTimeout(typeWriter, deletingSpeed);
-        }
-      } else {
-        textSpan.textContent = textToType.substring(0, charIndex);
-        charIndex++;
-        if (charIndex > textToType.length) {
-          h1.className = 'drawing-phase';
-          svg.classList.add('animate');
-          
-          setTimeout(() => {
-            svg.classList.remove('animate');
-            isDeleting = true;
-            typeWriter();
-          }, drawAnimationDuration + delayAfterDraw);
-        } else {
-          setTimeout(typeWriter, typingSpeed);
-        }
-      }
+    // --- START: โค้ดที่เพิ่มเข้ามาใหม่ ---
+    // สั่งให้เลื่อนไปบนสุดทุกครั้งที่โหลดหน้า
+    window.onbeforeunload = function ( ) {
+        window.scrollTo(0, 0);
     }
-
-    const heroH2 = document.getElementById("hero-h2");
-    const heroH2Span = heroH2.querySelector(".hero-h2-text");
-    const heroTextToType = "Hi, I'm SAHARAT TRAKULSUNTHONCHAI";
-    const heroTypingSpeed = 120;
-    const heroDeletingSpeed = 70;
-    const heroDelayAfterTyping = 3000;
-
-    let heroCharIndex = 0;
-    let heroIsDeleting = false;
-
-    function typeHeroH2() {
-        const currentText = heroTextToType;
-        if (heroIsDeleting) {
-            heroH2Span.textContent = currentText.substring(0, heroCharIndex);
-            heroCharIndex--;
-            if (heroCharIndex < 0) {
-                heroIsDeleting = false;
-                setTimeout(typeHeroH2, 500);
-            } else {
-                setTimeout(typeHeroH2, heroDeletingSpeed);
-            }
-        } else {
-            heroH2Span.textContent = currentText.substring(0, heroCharIndex + 1);
-            heroCharIndex++;
-            if (heroCharIndex === currentText.length) {
-                heroIsDeleting = true;
-                setTimeout(() => {
-                    heroH2Span.textContent = currentText;
-                    heroIsDeleting = false;
-                    heroCharIndex = 0;
-                    typeHeroH3();
-                }, heroDelayAfterTyping);
-            } else {
-                setTimeout(typeHeroH2, heroTypingSpeed);
-            }
-        }
-    }
-
-    const heroH3Animated = document.getElementById("hero-h3-animated");
-    const heroH3Span = heroH3Animated.querySelector(".hero-h3-text");
-    const heroH3TextToType = "Newby Developer";
-    const heroH3TypingSpeed = 120;
-    const heroH3DeletingSpeed = 70;
-    const heroH3DelayAfterTyping = 2000;
-
-    let heroH3CharIndex = 0;
-    let heroH3IsDeleting = false;
-
-    function typeHeroH3() {
-        const currentText = heroH3TextToType;
-        if (heroH3IsDeleting) {
-            heroH3Span.textContent = currentText.substring(0, heroH3CharIndex);
-            heroH3CharIndex--;
-            if (heroH3CharIndex < 0) {
-                heroH3IsDeleting = false;
-                setTimeout(typeHeroH3, 500);
-            } else {
-                setTimeout(typeHeroH3, heroH3DeletingSpeed);
-            }
-        } else {
-            heroH3Span.textContent = currentText.substring(0, heroH3CharIndex + 1);
-            heroH3CharIndex++;
-            if (heroH3CharIndex === currentText.length) {
-                heroH3IsDeleting = true;
-                setTimeout(typeHeroH3, heroH3DelayAfterTyping);
-            } else {
-                setTimeout(typeHeroH3, heroH3TypingSpeed);
-            }
-        }
-    }
+    // --- END: โค้ดที่เพิ่มเข้ามาใหม่ ---
 
     document.addEventListener("DOMContentLoaded", () => {
+        // --- โค้ดส่วนอื่นๆ ทั้งหมดเหมือนเดิม ---
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                header.classList.add('navbar-hidden');
+            } else {
+                header.classList.remove('navbar-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = mainNav.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+            if (!isClickInsideNav && !isClickOnToggle && mainNav.classList.contains('active')) {
+                mainNav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+
+        const h1 = document.getElementById('typing-text');
+        const textSpan = h1.querySelector('.text-content-typing');
+        const svg = document.getElementById('animated-svg');
+        const textToType = "MyPortfolio.";
+        let charIndex = 0;
+        let isDeleting = false;
+        function typeWriter() {
+            h1.className = 'typing-phase';
+            if (isDeleting) {
+                textSpan.textContent = textToType.substring(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    setTimeout(typeWriter, 500);
+                } else {
+                    setTimeout(typeWriter, 100);
+                }
+            } else {
+                textSpan.textContent = textToType.substring(0, charIndex++);
+                if (charIndex > textToType.length) {
+                    h1.className = 'drawing-phase';
+                    svg.classList.add('animate');
+                    setTimeout(() => {
+                        svg.classList.remove('animate');
+                        isDeleting = true;
+                        typeWriter();
+                    }, 5000);
+                } else {
+                    setTimeout(typeWriter, 150);
+                }
+            }
+        }
         typeWriter();
+
+        const heroH2 = document.getElementById("hero-h2");
+        const heroH2Span = heroH2.querySelector(".hero-h2-text");
+        const heroTextToType = "Hi, I'm SAHARAT TRAKULSUNTHONCHAI";
+        let heroCharIndex = 0;
+        let heroIsDeleting = false;
+        function typeHeroH2() {
+            if (heroIsDeleting) {
+                heroH2Span.textContent = heroTextToType.substring(0, heroCharIndex--);
+                if (heroCharIndex < 0) {
+                    heroIsDeleting = false;
+                    setTimeout(typeHeroH2, 500);
+                } else {
+                    setTimeout(typeHeroH2, 70);
+                }
+            } else {
+                heroH2Span.textContent = heroTextToType.substring(0, heroCharIndex++);
+                if (heroCharIndex > heroTextToType.length) {
+                    setTimeout(() => {
+                        heroIsDeleting = true;
+                        typeHeroH2();
+                    }, 3000);
+                } else {
+                    setTimeout(typeHeroH2, 120);
+                }
+            }
+        }
         typeHeroH2();
 
-        // --- START: โค้ดสำหรับจัดการเพลง (แก้ไขใหม่) ---
+        const heroH3Animated = document.getElementById("hero-h3-animated");
+        const heroH3Span = heroH3Animated.querySelector(".hero-h3-text");
+        const heroH3TextToType = "Newby Developer";
+        let heroH3CharIndex = 0;
+        let heroH3IsDeleting = false;
+        function typeHeroH3() {
+            if (heroH3IsDeleting) {
+                heroH3Span.textContent = heroH3TextToType.substring(0, heroH3CharIndex--);
+                if (heroH3CharIndex < 0) {
+                    heroH3IsDeleting = false;
+                    setTimeout(typeHeroH3, 500);
+                } else {
+                    setTimeout(typeHeroH3, 70);
+                }
+            } else {
+                heroH3Span.textContent = heroH3TextToType.substring(0, heroH3CharIndex++);
+                if (heroH3CharIndex > heroH3TextToType.length) {
+                    setTimeout(() => {
+                        heroH3IsDeleting = true;
+                        typeHeroH3();
+                    }, 2000);
+                } else {
+                    setTimeout(typeHeroH3, 120);
+                }
+            }
+        }
+        setTimeout(typeHeroH3, 1000);
+
         const music = document.getElementById("background-music");
         const startTime = 105;
         const endTime = 160;
         music.volume = 0.3;
-
-        // ฟังก์ชันสำหรับเริ่มเล่นเพลง
-        const playMusic = () => {
-            // เช็คว่าเพลงโหลด metadata เสร็จหรือยัง
-            if (music.readyState >= 2) { // HAVE_CURRENT_DATA
+        const playMusicOnClick = () => {
+            music.play().then(() => {
                 music.currentTime = startTime;
-                music.play().catch(e => console.error("Error playing music:", e));
-            }
+                document.body.removeEventListener('click', playMusicOnClick);
+            }).catch(error => {
+                console.log("Autoplay was prevented. User needs to interact with the page again.");
+            });
         };
-
-        // Event Listener สำหรับวนลูปเพลง
         music.addEventListener("timeupdate", () => {
             if (music.currentTime >= endTime) {
                 music.currentTime = startTime;
                 music.play();
             }
         });
+        document.body.addEventListener('click', playMusicOnClick);
 
-        // Event Listener สำหรับการคลิกครั้งแรก
-        document.body.addEventListener('click', playMusic, { once: true });
-        // --- END: โค้ดสำหรับจัดการเพลง ---
-        
-        // --- START: Skill Bar Animation ---
+        const images = [
+            "https://i.postimg.cc/Bncz5YnN/final.jpg",
+            "https://i.postimg.cc/ydrXX9RL/image.jpg",
+            "https://i.postimg.cc/MTstPNCb/300-150-Rotary.jpg",
+            "https://i.postimg.cc/c4T1DmC1/150-100-CP-ALL.png",
+            "https://i.postimg.cc/pdc5y2Rb/1170-570.jpg",
+        ];
+        let imageIndex = 0;
+        const imgElement = document.getElementById("myImage" );
+        if (imgElement) {
+            setInterval(() => {
+                imageIndex = (imageIndex + 1) % images.length;
+                imgElement.src = images[imageIndex];
+            }, 3000);
+        }
+
         const skillsSection = document.querySelector('#skills');
         const skillBars = document.querySelectorAll('.bar-fill');
         let animationHasRun = false;
-
         function triggerSkillAnimation() {
             skillBars.forEach(bar => {
                 bar.style.transition = 'none';
                 bar.style.width = '0';
             });
-
             setTimeout(() => {
                 skillBars.forEach((bar, index) => {
                     bar.style.transition = 'width 1.5s ease-in-out';
@@ -539,13 +346,6 @@
                 animationHasRun = true;
             }, 50);
         }
-
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.3 
-        };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !animationHasRun) {
@@ -555,20 +355,18 @@
                     animationHasRun = false;
                 }
             });
-        }, observerOptions);
-
-        observer.observe(skillsSection);
-
+        }, { threshold: 0.3 });
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
         const skillsMenuLink = document.querySelector('a[href="#skills"]');
         if (skillsMenuLink) {
-            skillsMenuLink.addEventListener('click', (e) => {
+            skillsMenuLink.addEventListener('click', () => {
                 triggerSkillAnimation();
             });
         }
-        // --- END: Skill Bar Animation ---
     });
   </script>
   <!-- END: JavaScript -->
-
 </body>
 </html>

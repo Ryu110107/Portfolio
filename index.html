@@ -7,22 +7,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Thasadith:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-  <!-- เพิ่ม Font Awesome สำหรับไอคอน -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* รีเซ็ต */
+    /* CSS ทั้งหมดเหมือนเดิม */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Chakra Petch", sans-serif;
-      background: url("https://i.postimg.cc/tRLGqYHz/ae7cd05d9438e3a42f955718affa1c9b.gif"  ) no-repeat center center fixed;
+      background: url("https://i.postimg.cc/tRLGqYHz/ae7cd05d9438e3a42f955718affa1c9b.gif"    ) no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       line-height: 1.6;
       position: relative;
       padding-top: 80px;
+      scroll-behavior: smooth;
     }
 
-    /* Navbar */
     header {
       display: flex;
       justify-content: space-between;
@@ -48,8 +47,6 @@
       flex-shrink: 0;
     }
 
-    /* --- โค้ดส่วนที่แก้ไข --- */
-    /* Container สำหรับ SVG และ Text */
     .svg-text-container, .text-content-wrapper {
       width: 100%;
       height: 100%;
@@ -58,13 +55,11 @@
       justify-content: flex-start;
     }
 
-    /* ซ่อน/แสดง ตาม phase */
     .typing-phase .svg-text-container,
     .drawing-phase .text-content-wrapper {
       display: none;
     }
 
-    /* SVG Text Animation */
     .animated-svg-text text {
       font-family: "Chakra Petch", sans-serif;
       font-size: 32px;
@@ -73,9 +68,8 @@
       stroke: #38bdf8;
       stroke-width: 1.5;
       stroke-dasharray: 1200;
-      stroke-dashoffset: 1200; /* เริ่มต้นแบบไม่เห็นเส้น */
+      stroke-dashoffset: 1200;
     }
-    /* สั่งให้ animation ทำงานเมื่อมีคลาส .animate */
     .animated-svg-text.animate text {
       animation: draw-text 4s linear forwards;
     }
@@ -86,7 +80,6 @@
       }
     }
 
-    /* เคอร์เซอร์กระพริบ */
     .blinking-cursor {
       display: inline-block;
       background-color: #38bdf8;
@@ -97,13 +90,11 @@
       vertical-align: middle;
     }
     
-    /* เคอร์เซอร์กระพริบสำหรับ Hero H2 */
     #hero-h2 .blinking-cursor {
-        height: 3rem; /* ปรับความสูงให้เข้ากับ font-size ของ h2 */
+        height: 3rem;
     }
-    /* เคอร์เซอร์กระพริบสำหรับ Hero H3 */
     #hero-h3-animated .blinking-cursor {
-        height: 2rem; /* ปรับความสูงให้เข้ากับ font-size ของ h3 */
+        height: 2rem;
     }
 
     @keyframes blink {
@@ -116,51 +107,47 @@
         font-size: 32px;
         font-weight: bold;
     }
-    /* --- จบส่วนที่แก้ไข --- */
 
-    /* เมนู (Desktop) */
     nav a { margin: 0 15px; color: #fff; text-decoration: none; transition: color 0.3s; }
     nav a:hover { color: #38bdf8; }
 
-    /* ปุ่ม Hamburger Menu */
     .menu-toggle { display: none; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1002; }
     .menu-toggle .bar { width: 100%; height: 3px; background-color: #fff; border-radius: 2px; transition: all 0.3s ease-in-out; }
     .menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
     .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
     .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-    /* Hero */
     .hero { display: flex; justify-content: center; align-items: center; padding: 100px 50px; flex-wrap: wrap; text-align: center; }
-    .hero-text h2 { font-size: 3rem; min-height: 4rem; /* เพิ่มความสูงขั้นต่ำเพื่อไม่ให้ layout กระโดด */}
+    .hero-text h2 { font-size: 3rem; min-height: 4rem; }
     .hero-text h3 { font-size: 2rem; color: #38bdf8; margin: 10px 0; }
     .hero-text p { font-size: 1.2rem; }
     .btn { display: inline-block; margin-top: 20px; padding: 10px 25px; background: #38bdf8; color: #0b1120; border-radius: 5px; text-decoration: none; font-weight: bold; }
     .btn:hover { background: #0ea5e9; }
 
-    /* Section */
     section { padding: 60px 50px; background: rgba(15, 23, 42, 0.85); margin: 20px auto; border-radius: 15px; max-width: 900px; }
     section h2 { position: relative; margin-bottom: 20px; text-align: center; font-size: 2.2rem; background: linear-gradient(90deg, #38bdf8, #f43f5e, #fff, #34d399, #38bdf8); background-size: 300% 100%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: animateGradient 5s linear infinite; text-shadow: none; }
     @keyframes animateGradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     section h2::after { content: ""; position: absolute; left: 0; bottom: -8px; width: 100%; height: 8px; background: linear-gradient(120deg, #38bdf8, #f43f5e, #fff, #34d399, #38bdf8); transform: skewX(-20deg); border-radius: 4px; z-index: -1; background-size: 300% 100%; animation: animateGradient 5s linear infinite; }
     #hero-h3-animated::after { content: none; }
 
-    /* Profile */
     .profile-wrapper { position: relative; display: inline-block; border-radius: 50%; padding: 5px; background: linear-gradient(90deg, #38bdf8, #f43f5e, #34d399, #38bdf8); background-size: 300% 300%; animation: gradientBorder 5s linear infinite; box-shadow: 0 10px 20px rgba(56,189,248,0.4), 0 0 30px rgba(52,211,153,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; margin: 20px 0; }
-    .profile-wrapper img { border-radius: 50%; display: block; width: 350px; height: 350px; /* ปรับเป็นสี่เหลี่ยมจัตุรัส */ object-fit: cover; transition: transform 0.3s ease; }
+    .profile-wrapper img { border-radius: 50%; display: block; width: 350px; height: 350px; object-fit: cover; transition: transform 0.3s ease; }
     .profile-wrapper:hover { transform: scale(1.05); box-shadow: 0 15px 25px rgba(56,189,248,0.6), 0 0 40px rgba(52,211,153,0.5); }
     @keyframes gradientBorder { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 
-    /* Skills Bar */
     .skill { margin: 15px 0; }
     .bar { width: 100%; background: #1e293b; border-radius: 5px; overflow: hidden; }
-    .bar-fill { height: 14px; background: #38bdf8; }
+    .bar-fill {
+      height: 14px;
+      background: #38bdf8;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
 
-    /* Contact Form */
     form input, form textarea { width: 100%; margin: 10px 0; padding: 12px; border: none; border-radius: 5px; }
     form button { padding: 12px 25px; background: #38bdf8; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; margin-top: 10px; }
     form button:hover { background: #0ea5e9; }
 
-    /* --- START: CSS สำหรับปุ่มโซเชียล --- */
     .form-submit-area {
       display: flex;
       align-items: center;
@@ -175,7 +162,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 44px; /* ขนาดเท่ากับความสูงของปุ่ม Send Message */
+      width: 44px;
       height: 44px;
       background-color: #1e293b;
       color: #fff;
@@ -188,12 +175,9 @@
       background-color: #38bdf8;
       transform: scale(1.1);
     }
-    /* --- END: CSS สำหรับปุ่มโซเชียล --- */
 
-    /* Footer */
     footer { text-align: center; padding: 20px; background: rgba(15, 23, 42, 0.85); }
 
-    /* Responsive */
     @media (max-width: 768px) {
       body { padding-top: 70px; }
       header { padding: 15px 20px; }
@@ -219,7 +203,7 @@
   </style>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- HTML ทั้งหมดเหมือนเดิม -->
   <header>
     <h1 id="typing-text" class="typing-phase">
       <div class="text-content-wrapper">
@@ -246,7 +230,6 @@
     </button>
   </header>
 
-  <!-- เนื้อหาส่วนที่เหลือ -->
   <section class="hero" id="home">
     <div class="hero-text">
    <img src="https://i.postimg.cc/FFZ6vdjz/matikanetannhauser-mambo.gif" style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%;">
@@ -283,49 +266,49 @@
      alt="Example"
      style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto; margin-bottom:20px;" >
        
-<img id="myImage"
-     src="https://i.postimg.cc/7PFPB5mQ/image.jpg"
-     style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto;">
+    <img id="myImage"
+         src="https://i.postimg.cc/7PFPB5mQ/image.jpg"
+         style="width:100%; max-width:800px; height:auto; border:2px solid #38bdf8; display:block; margin:auto;">
 
-<script>
-  const images = [
-    "https://i.postimg.cc/Bncz5YnN/final.jpg",
-    "https://i.postimg.cc/ydrXX9RL/image.jpg",
-    "https://i.postimg.cc/MTstPNCb/300-150-Rotary.jpg",
-    "https://i.postimg.cc/c4T1DmC1/150-100-CP-ALL.png",
-       "https://i.postimg.cc/pdc5y2Rb/1170-570.jpg",
-  ];
+    <script>
+      const images = [
+        "https://i.postimg.cc/Bncz5YnN/final.jpg",
+        "https://i.postimg.cc/ydrXX9RL/image.jpg",
+        "https://i.postimg.cc/MTstPNCb/300-150-Rotary.jpg",
+        "https://i.postimg.cc/c4T1DmC1/150-100-CP-ALL.png",
+           "https://i.postimg.cc/pdc5y2Rb/1170-570.jpg",
+      ];
 
-  let index = 0;
-  const imgElement = document.getElementById("myImage");
+      let index = 0;
+      const imgElement = document.getElementById("myImage"  );
 
-  setInterval(() => {
-    index = (index + 1) % images.length;
-    imgElement.src = images[index];
-  }, 3000);
-</script>
-
-
+      setInterval(() => {
+        index = (index + 1) % images.length;
+        imgElement.src = images[index];
+      }, 3000);
+    </script>
   </section>
+  
   <section id="skills">
     <h2>My Skills</h2>
     <div class="skill">
       <p>HTML</p>
-      <div class="bar"><div class="bar-fill" style="width:90%"></div></div>
+      <div class="bar"><div class="bar-fill" data-width="90%"></div></div>
     </div>
     <div class="skill">
       <p>CSS</p>
-      <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+      <div class="bar"><div class="bar-fill" data-width="80%"></div></div>
     </div>
     <div class="skill">
       <p>JavaScript</p>
-      <div class="bar"><div class="bar-fill" style="width:50%"></div></div>
+      <div class="bar"><div class="bar-fill" data-width="50%"></div></div>
     </div>
     <div class="skill">
       <p>Graphic</p>
-      <div class="bar"><div class="bar-fill" style="width:80%"></div></div>
+      <div class="bar"><div class="bar-fill" data-width="80%"></div></div>
     </div>
   </section>
+
   <section id="contact">
     <h2>Contact Me</h2>
     <form class="big-form">
@@ -333,21 +316,17 @@
       <input type="email" placeholder="Email" required>
       <input type="tel" placeholder="Mobile Number">
       <textarea rows="5" placeholder="Your Message"></textarea>
-      <!-- --- START: โค้ดที่แก้ไขสำหรับปุ่ม --- -->
       <div class="form-submit-area">
         <button type="submit">Send Message</button>
         <div class="social-links">
-          <!-- เปลี่ยน # เป็นลิงก์ Facebook ของคุณ -->
           <a href="https://www.facebook.com/saharat.thakulsuntronchai" class="social-btn" target="_blank" >
             <i class="fab fa-facebook-f"></i>
           </a>
-          <!-- เปลี่ยน # เป็นลิงก์อื่น ๆ เช่น Instagram, GitHub -->
           <a href="https://www.instagram.com/absolutelychillbro/" class="social-btn" target="_blank" >
             <i class="fab fa-instagram"></i>
           </a>
         </div>
       </div>
-      <!-- --- END: โค้ดที่แก้ไขสำหรับปุ่ม --- -->
     </form>
   </section>
 <img src="https://i.postimg.cc/FFZ6vdjz/matikanetannhauser-mambo.gif" style="width: 350px; height: 350px; object-fit: cover; border-radius: 50%;">
@@ -358,21 +337,15 @@
     <p>© 2025 MyPortfolio. Reserved By Saharat.</p>
   </footer>
 
-
-
-</body>
-</html>
-
-  <!-- --- START: โค้ดสำหรับเพลง MP3 --- -->
-  <audio id="background-music" loop autoplay>
+  <!-- เอา autoplay ออกจาก HTML -->
+  <audio id="background-music" loop>
     <source src="เพลง.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
-  <!-- --- END: โค้ดสำหรับเพลง MP3 --- -->
 
-  <!-- JavaScript -->
+  <!-- START: JavaScript (แก้ไขส่วนเพลง ) -->
   <script>
-    // --- Navbar Scroll ---
+    // --- โค้ดส่วนอื่นๆ เหมือนเดิม ---
     let lastScrollTop = 0;
     const header = document.querySelector('header' );
     window.addEventListener('scroll', function() {
@@ -385,7 +358,6 @@
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
 
-    // --- Hamburger Menu ---
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
     menuToggle.addEventListener('click', () => {
@@ -401,44 +373,39 @@
       }
     });
 
-    // --- Typing and SVG Animation for Navbar ---
     const h1 = document.getElementById('typing-text');
     const textSpan = h1.querySelector('.text-content-typing');
     const svg = document.getElementById('animated-svg');
     const textToType = "MyPortfolio.";
     const typingSpeed = 150;
     const deletingSpeed = 100;
-    const drawAnimationDuration = 4000; // 4s
-    const delayAfterDraw = 1000; // 1s
+    const drawAnimationDuration = 4000;
+    const delayAfterDraw = 1000;
 
     let charIndex = 0;
     let isDeleting = false;
 
     function typeWriter() {
-      h1.className = 'typing-phase'; // อยู่ในโหมดพิมพ์เสมอเมื่อฟังก์ชันนี้ทำงาน
+      h1.className = 'typing-phase';
       
       if (isDeleting) {
-        // --- กำลังลบ ---
         textSpan.textContent = textToType.substring(0, charIndex);
         charIndex--;
         if (charIndex < 0) {
           isDeleting = false;
-          setTimeout(typeWriter, 500); // หน่วงเวลาก่อนเริ่มพิมพ์ใหม่
+          setTimeout(typeWriter, 500);
         } else {
           setTimeout(typeWriter, deletingSpeed);
         }
       } else {
-        // --- กำลังพิมพ์ ---
         textSpan.textContent = textToType.substring(0, charIndex);
         charIndex++;
         if (charIndex > textToType.length) {
-          // --- พิมพ์เสร็จแล้ว -> เปลี่ยนไปโหมดวาดเส้น ---
           h1.className = 'drawing-phase';
           svg.classList.add('animate');
           
-          // รอให้ animation วาดเส้นจบ แล้วค่อยเริ่มลบ
           setTimeout(() => {
-            svg.classList.remove('animate'); // รีเซ็ต animation
+            svg.classList.remove('animate');
             isDeleting = true;
             typeWriter();
           }, drawAnimationDuration + delayAfterDraw);
@@ -448,13 +415,12 @@
       }
     }
 
-    // --- Typing Animation for Hero H2 ---
     const heroH2 = document.getElementById("hero-h2");
     const heroH2Span = heroH2.querySelector(".hero-h2-text");
     const heroTextToType = "Hi, I'm SAHARAT TRAKULSUNTHONCHAI";
     const heroTypingSpeed = 120;
     const heroDeletingSpeed = 70;
-    const heroDelayAfterTyping = 3000; // หน่วงเวลา 3 วินาทีก่อนเริ่มลบ
+    const heroDelayAfterTyping = 3000;
 
     let heroCharIndex = 0;
     let heroIsDeleting = false;
@@ -462,41 +428,37 @@
     function typeHeroH2() {
         const currentText = heroTextToType;
         if (heroIsDeleting) {
-            // --- กำลังลบ ---
             heroH2Span.textContent = currentText.substring(0, heroCharIndex);
             heroCharIndex--;
             if (heroCharIndex < 0) {
                 heroIsDeleting = false;
-                setTimeout(typeHeroH2, 500); // หน่วงเวลาก่อนเริ่มพิมพ์ใหม่
+                setTimeout(typeHeroH2, 500);
             } else {
                 setTimeout(typeHeroH2, heroDeletingSpeed);
             }
         } else {
-            // --- กำลังพิมพ์ ---
             heroH2Span.textContent = currentText.substring(0, heroCharIndex + 1);
             heroCharIndex++;
             if (heroCharIndex === currentText.length) {
-                // --- พิมพ์เสร็จแล้ว ---
                 heroIsDeleting = true;
                 setTimeout(() => {
-                    heroH2Span.textContent = currentText; // ทำให้ข้อความ H2 แสดงเต็มเสมอเมื่อจบ
-                    heroIsDeleting = false; // รีเซ็ตสถานะการลบของ H2
-                    heroCharIndex = 0; // รีเซ็ต index ของ H2
-                    typeHeroH3(); // เริ่มแอนิเมชันของ H3
-                }, heroDelayAfterTyping); // รอสักครู่แล้วเริ่มแอนิเมชัน H3
+                    heroH2Span.textContent = currentText;
+                    heroIsDeleting = false;
+                    heroCharIndex = 0;
+                    typeHeroH3();
+                }, heroDelayAfterTyping);
             } else {
                 setTimeout(typeHeroH2, heroTypingSpeed);
             }
         }
     }
 
-    // --- Typing Animation for Hero H3 (Newby Developer) ---
     const heroH3Animated = document.getElementById("hero-h3-animated");
     const heroH3Span = heroH3Animated.querySelector(".hero-h3-text");
     const heroH3TextToType = "Newby Developer";
     const heroH3TypingSpeed = 120;
     const heroH3DeletingSpeed = 70;
-    const heroH3DelayAfterTyping = 2000; // หน่วงเวลา 2 วินาทีก่อนเริ่มลบ
+    const heroH3DelayAfterTyping = 2000;
 
     let heroH3CharIndex = 0;
     let heroH3IsDeleting = false;
@@ -504,76 +466,109 @@
     function typeHeroH3() {
         const currentText = heroH3TextToType;
         if (heroH3IsDeleting) {
-            // --- กำลังลบ ---
             heroH3Span.textContent = currentText.substring(0, heroH3CharIndex);
             heroH3CharIndex--;
             if (heroH3CharIndex < 0) {
                 heroH3IsDeleting = false;
-                setTimeout(typeHeroH3, 500); // หน่วงเวลาก่อนเริ่มพิมพ์ใหม่
+                setTimeout(typeHeroH3, 500);
             } else {
                 setTimeout(typeHeroH3, heroH3DeletingSpeed);
             }
         } else {
-            // --- กำลังพิมพ์ ---
             heroH3Span.textContent = currentText.substring(0, heroH3CharIndex + 1);
             heroH3CharIndex++;
             if (heroH3CharIndex === currentText.length) {
-                // --- พิมพ์เสร็จแล้ว ---
                 heroH3IsDeleting = true;
-                setTimeout(typeHeroH3, heroH3DelayAfterTyping); // รอสักครู่แล้วเริ่มลบ
+                setTimeout(typeHeroH3, heroH3DelayAfterTyping);
             } else {
                 setTimeout(typeHeroH3, heroH3TypingSpeed);
             }
         }
     }
 
-    // --- Start Animations on Load ---
     document.addEventListener("DOMContentLoaded", () => {
-        typeWriter(); // เริ่ม animation ของ Navbar
-        typeHeroH2(); // เริ่ม animation ของ Hero H2
+        typeWriter();
+        typeHeroH2();
 
-        // --- START: โค้ดสำหรับจัดการการเล่นเพลงอัตโนมัติและวนลูปช่วงเวลาที่กำหนด ---
+        // --- START: โค้ดสำหรับจัดการเพลง (แก้ไขใหม่) ---
         const music = document.getElementById("background-music");
-        const startTime = 105; // 1 นาที 45 วินาที
-        const endTime = 160;   // 2 นาที 40 วินาที
+        const startTime = 105;
+        const endTime = 160;
+        music.volume = 0.3;
 
-        // ตั้งค่าระดับเสียงเริ่มต้น (0.0 ถึง 1.0)
-        music.volume = 0.3; 
+        // ฟังก์ชันสำหรับเริ่มเล่นเพลง
+        const playMusic = () => {
+            // เช็คว่าเพลงโหลด metadata เสร็จหรือยัง
+            if (music.readyState >= 2) { // HAVE_CURRENT_DATA
+                music.currentTime = startTime;
+                music.play().catch(e => console.error("Error playing music:", e));
+            }
+        };
 
-        // ตั้งค่าเวลาเริ่มต้นเมื่อโหลดเพลง
-        music.addEventListener("loadedmetadata", () => {
-            music.currentTime = startTime;
-        });
-
-        // ตรวจสอบเวลาปัจจุบันและวนลูป
+        // Event Listener สำหรับวนลูปเพลง
         music.addEventListener("timeupdate", () => {
             if (music.currentTime >= endTime) {
                 music.currentTime = startTime;
-                music.play(); // บางเบราว์เซอร์อาจต้องสั่ง play ซ้ำเมื่อตั้งค่า currentTime
+                music.play();
             }
         });
 
-        // พยายามเล่นเพลงอัตโนมัติ
-        let playPromise = music.play();
+        // Event Listener สำหรับการคลิกครั้งแรก
+        document.body.addEventListener('click', playMusic, { once: true });
+        // --- END: โค้ดสำหรับจัดการเพลง ---
+        
+        // --- START: Skill Bar Animation ---
+        const skillsSection = document.querySelector('#skills');
+        const skillBars = document.querySelectorAll('.bar-fill');
+        let animationHasRun = false;
 
-        if (playPromise !== undefined) {
-            playPromise.then(_ => {
-                // เล่นอัตโนมัติสำเร็จ
-                music.currentTime = startTime; // ตั้งเวลาเริ่มต้นอีกครั้งเผื่อกรณีเล่นอัตโนมัติสำเร็จก่อน loadedmetadata
-            }).catch(error => {
-                // การเล่นอัตโนมัติถูกบล็อกโดยเบราว์เซอร์
-                console.log("Autoplay was prevented. Waiting for user interaction.");
-                document.body.addEventListener("click", () => {
-                    music.play();
-                    music.currentTime = startTime; // ตั้งเวลาเริ่มต้นเมื่อผู้ใช้คลิก
-                }, { once: true }); // ให้ event นี้ทำงานแค่ครั้งเดียว
+        function triggerSkillAnimation() {
+            skillBars.forEach(bar => {
+                bar.style.transition = 'none';
+                bar.style.width = '0';
+            });
+
+            setTimeout(() => {
+                skillBars.forEach((bar, index) => {
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                    setTimeout(() => {
+                        const finalWidth = bar.getAttribute('data-width');
+                        bar.style.width = finalWidth;
+                    }, index * 200);
+                });
+                animationHasRun = true;
+            }, 50);
+        }
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3 
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animationHasRun) {
+                    triggerSkillAnimation();
+                }
+                if (!entry.isIntersecting) {
+                    animationHasRun = false;
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(skillsSection);
+
+        const skillsMenuLink = document.querySelector('a[href="#skills"]');
+        if (skillsMenuLink) {
+            skillsMenuLink.addEventListener('click', (e) => {
+                triggerSkillAnimation();
             });
         }
-        // --- END: โค้ดสำหรับจัดการการเล่นเพลงอัตโนมัติและวนลูปช่วงเวลาที่กำหนด ---
+        // --- END: Skill Bar Animation ---
     });
   </script>
-
-
+  <!-- END: JavaScript -->
 
 </body>
 </html>

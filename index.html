@@ -166,15 +166,12 @@
 
   <!-- START: JavaScript -->
   <script>
-    // --- START: โค้ดที่เพิ่มเข้ามาใหม่ ---
-    // สั่งให้เลื่อนไปบนสุดทุกครั้งที่โหลดหน้า
     window.onbeforeunload = function ( ) {
         window.scrollTo(0, 0);
     }
-    // --- END: โค้ดที่เพิ่มเข้ามาใหม่ ---
 
     document.addEventListener("DOMContentLoaded", () => {
-        // --- โค้ดส่วนอื่นๆ ทั้งหมดเหมือนเดิม ---
+        // --- โค้ดส่วน Navbar และ Typing Navbar เหมือนเดิม ---
         let lastScrollTop = 0;
         const header = document.querySelector('header');
         window.addEventListener('scroll', function() {
@@ -235,62 +232,48 @@
         }
         typeWriter();
 
+        // --- START: โค้ด Typing Animation ที่แก้ไขแล้ว ---
         const heroH2 = document.getElementById("hero-h2");
         const heroH2Span = heroH2.querySelector(".hero-h2-text");
+        const heroH2Cursor = heroH2.querySelector(".blinking-cursor");
         const heroTextToType = "Hi, I'm SAHARAT TRAKULSUNTHONCHAI";
         let heroCharIndex = 0;
-        let heroIsDeleting = false;
-        function typeHeroH2() {
-            if (heroIsDeleting) {
-                heroH2Span.textContent = heroTextToType.substring(0, heroCharIndex--);
-                if (heroCharIndex < 0) {
-                    heroIsDeleting = false;
-                    setTimeout(typeHeroH2, 500);
-                } else {
-                    setTimeout(typeHeroH2, 70);
-                }
-            } else {
-                heroH2Span.textContent = heroTextToType.substring(0, heroCharIndex++);
-                if (heroCharIndex > heroTextToType.length) {
-                    setTimeout(() => {
-                        heroIsDeleting = true;
-                        typeHeroH2();
-                    }, 3000);
-                } else {
-                    setTimeout(typeHeroH2, 120);
-                }
-            }
-        }
-        typeHeroH2();
 
         const heroH3Animated = document.getElementById("hero-h3-animated");
         const heroH3Span = heroH3Animated.querySelector(".hero-h3-text");
+        const heroH3Cursor = heroH3Animated.querySelector(".blinking-cursor");
         const heroH3TextToType = "Newby Developer";
         let heroH3CharIndex = 0;
-        let heroH3IsDeleting = false;
-        function typeHeroH3() {
-            if (heroH3IsDeleting) {
-                heroH3Span.textContent = heroH3TextToType.substring(0, heroH3CharIndex--);
-                if (heroH3CharIndex < 0) {
-                    heroH3IsDeleting = false;
-                    setTimeout(typeHeroH3, 500);
-                } else {
-                    setTimeout(typeHeroH3, 70);
-                }
+
+        function typeHeroH2() {
+            if (heroCharIndex < heroTextToType.length) {
+                heroH2Span.textContent += heroTextToType.charAt(heroCharIndex);
+                heroCharIndex++;
+                setTimeout(typeHeroH2, 120);
             } else {
-                heroH3Span.textContent = heroH3TextToType.substring(0, heroH3CharIndex++);
-                if (heroH3CharIndex > heroH3TextToType.length) {
-                    setTimeout(() => {
-                        heroH3IsDeleting = true;
-                        typeHeroH3();
-                    }, 2000);
-                } else {
-                    setTimeout(typeHeroH3, 120);
-                }
+                // เมื่อพิมพ์ H2 จบ ให้ซ่อน cursor ของ H2 และเริ่มพิมพ์ H3
+                if(heroH2Cursor) heroH2Cursor.style.display = 'none';
+                typeHeroH3();
             }
         }
-        setTimeout(typeHeroH3, 1000);
 
+        function typeHeroH3() {
+            if (heroH3CharIndex < heroH3TextToType.length) {
+                heroH3Span.textContent += heroH3TextToType.charAt(heroH3CharIndex);
+                heroH3CharIndex++;
+                setTimeout(typeHeroH3, 120);
+            } else {
+                // เมื่อพิมพ์ H3 จบ ให้ซ่อน cursor ของ H3 ด้วย
+                if(heroH3Cursor) heroH3Cursor.style.display = 'none';
+                // จบการทำงาน ไม่ต้องทำอะไรต่อ
+            }
+        }
+        
+        // เริ่มการทำงานของ H2
+        typeHeroH2();
+        // --- END: โค้ด Typing Animation ที่แก้ไขแล้ว ---
+
+        // --- โค้ดส่วนที่เหลือเหมือนเดิม ---
         const music = document.getElementById("background-music");
         const startTime = 105;
         const endTime = 160;
